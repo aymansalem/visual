@@ -124,6 +124,142 @@
                 max-width: 100%;
             }
         }
+        ```css
+/* ==========================================
+   PRINT / PDF LAYOUT
+   ========================================== */
+
+@media print {
+
+    @page {
+        size: A4 landscape;
+        margin: 15mm 12mm 15mm 12mm;
+    }
+
+    html,
+    body {
+        width: 100% !important;
+        height: auto !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        overflow: visible !important;
+        background: #fff !important;
+        color: #000 !important;
+        font-size: 9pt !important;
+        line-height: 1.3 !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+
+    /* Remove navigation and screen-only controls */
+    nav,
+    .navbar,
+    .navigation,
+    .no-print,
+    .print-button,
+    button,
+    .back-to-top {
+        display: none !important;
+    }
+
+    /* Prevent screen layout widths from restricting printed pages */
+    .container,
+    .wrapper,
+    .content,
+    main,
+    section {
+        width: 100% !important;
+        max-width: none !important;
+        height: auto !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+        overflow: visible !important;
+        box-sizing: border-box !important;
+    }
+
+    /* Keep the page heading with the content that follows */
+    h1,
+    h2,
+    h3 {
+        break-after: avoid-page;
+        page-break-after: avoid;
+    }
+
+    /* Make the mapping table use the available page width */
+    .matrix-table {
+        width: 100% !important;
+        max-width: none !important;
+        border-collapse: collapse !important;
+        table-layout: fixed !important;
+        font-size: 8pt !important;
+        line-height: 1.25 !important;
+    }
+
+    .matrix-table th,
+    .matrix-table td {
+        border: 1px solid #555 !important;
+        padding: 5px !important;
+        vertical-align: top !important;
+        white-space: normal !important;
+        overflow-wrap: anywhere !important;
+        word-break: normal !important;
+    }
+
+    .matrix-table thead {
+        display: table-header-group !important;
+    }
+
+    .matrix-table tfoot {
+        display: table-footer-group !important;
+    }
+
+    /* Avoid breaking short rows; long rows may continue naturally */
+    .matrix-table tr {
+        break-inside: avoid;
+        page-break-inside: avoid;
+    }
+
+    /* Do not split images or individual exhibit callouts */
+    img,
+    figure,
+    .exhibit-image,
+    .callout-box {
+        max-width: 100% !important;
+        break-inside: avoid;
+        page-break-inside: avoid;
+    }
+
+    img {
+        height: auto !important;
+    }
+
+    /* Avoid forcing every section onto a new page */
+    section,
+    .exhibit,
+    .evidence-block {
+        height: auto !important;
+        overflow: visible !important;
+    }
+
+    /* Keep headers and footers in the normal print flow */
+    header,
+    footer {
+        position: static !important;
+        width: 100% !important;
+        height: auto !important;
+        overflow: visible !important;
+    }
+
+    /* Remove decorative shadows */
+    * {
+        box-shadow: none !important;
+        text-shadow: none !important;
+    }
+}
+
+
     </style>
     <script>
         // Prevents page hanging or infinite loading spinners if local image files are missing
