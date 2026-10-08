@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Article 115 EPC Third-Party Observation Evidentiary Dossier - EP 4523100.3 (Visual Annex V Series)</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            line-height: 1.6;
+            color: #222;
+            margin: 20px;
+            background-color: #f9f9f9;
+        }
+        .container {
+            max-width: 1000px;
+            margin: auto;
+            background: #fff;
+            padding: 30px;
+            border: 1px solid #ddd;
+            box-shadow: 0 0 10px rgba(0,0,0,0.05);
+        }
+        h1, h2, h3 {
+            color: #111;
+            border-bottom: 2px solid #003366;
+            padding-bottom: 5px;
+        }
+        h1 { font-size: 24px; }
+        h2 { font-size: 18px; margin-top: 30px; }
+        h3 { font-size: 15px; border-bottom: none; margin-top: 15px; color: #003366; }
+        
+        /* STRICT IMAGE CONTAINER & SIZING CONTROL */
+        .img-container {
+            margin: 15px 0;
+            background-color: #f0f0f0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            overflow: hidden;
+            display: block;
+            box-sizing: border-box;
+            position: relative;
+        }
+
+        /* Standard Sizing Rules */
+        .img-container.full-width {
+            width: 100%;
+            max-width: 100%;
+        }
+
+        .img-container.half-width {
+            width: 50%;
+            max-width: 50%;
+            margin: 15px auto; /* Centered layout for half-width exhibits */
+        }
+
+        /* Forced Image Boundaries */
+        .img-full {
+            width: 100% !important;
+            max-width: 100% !important;
+            height: auto !important;
+            display: block !important;
+            object-fit: contain;
+        }
+
+        .img-fallback {
+            padding: 15px;
+            text-align: center;
+            color: #666;
+            font-size: 12px;
+            font-weight: bold;
+            background: #eef2f5;
+            border: 1px dashed #999;
+        }
+
+        .meta-table, .matrix-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 13px;
+        }
+        .meta-table th, .meta-table td, .matrix-table th, .matrix-table td {
+            border: 1px solid #ccc;
+            padding: 8px 10px;
+            text-align: left;
+            vertical-align: top;
+        }
+        .meta-table th, .matrix-table th {
+            background-color: #003366;
+            color: #fff;
+        }
+        .matrix-table tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        .exhibit-card {
+            border: 1px solid #bbb;
+            background: #fafafa;
+            padding: 15px;
+            margin-bottom: 25px;
+            border-radius: 4px;
+        }
+        .chain-box {
+            background-color: #eef4f8;
+            border-left: 4px solid #003366;
+            padding: 15px;
+            margin: 20px 0;
+            font-size: 14px;
+        }
+        .chain-box ol {
+            margin: 0;
+            padding-left: 20px;
+        }
+        .dispute-notice {
+            background-color: #fff8e7;
+            border: 1px solid #ffe0b2;
+            border-left: 4px solid #ff9800;
+            padding: 12px;
+            margin: 15px 0;
+            font-size: 13px;
+        }
+
+        @media (max-width: 768px) {
+            .img-container.half-width {
+                width: 100%;
+                max-width: 100%;
+            }
+        }
+    </style>
+    <script>
+        // Prevents page hanging or infinite loading spinners if local image files are missing
+        function handleImgError(image, annexId) {
+            image.style.display = 'none';
+            var container = image.parentElement;
+            var fallback = document.createElement('div');
+            fallback.className = 'img-fallback';
+            fallback.innerHTML = 'Image File: <code>images-evidences/' + annexId + '.png</code><br><small>(File unreadable or path mismatched)</small>';
+            container.appendChild(fallback);
+        }
+    </script>
+</head>
+<body>
+
+<div class="container">
+
+    <h1>EVIDENTIARY DOSSIER UNDER ARTICLE 115 EPC</h1>
+    <p><strong>Target Application:</strong> European Patent Application EP 4523100.3 / PCT/US2023/019103 ("Split Stay Ranking and Matching")</p>
+    <p><strong>Applicant:</strong> Airbnb, Inc.</p>
+
+    <div class="dispute-notice">
+        <strong>Prior Dispute Citation:</strong> Kayak Dispute (2024) regarding split-stay accommodation search systems and algorithmic multi-segment itinerary matching.
+    </div>
+
+    <h2>Coherent Evidentiary Chain</h2>
+    <div class="chain-box">
+        <ol>
+            <li><strong>ANNEX-V-001, ANNEX-V-018, ANNEX-V-019</strong> — The database and admin panel store account-level and hotel-level relocation permissions.</li>
+            <li><strong>ANNEX-V-007, ANNEX-V-017, ANNEX-V-019</strong> — The system has database fields and administrator settings to enable relocation.</li>
+            <li><strong>ANNEX-V-002, ANNEX-V-003, ANNEX-V-004, ANNEX-V-006</strong> — The user-facing interface describes room relocation and hotel relocation.</li>
+            <li><strong>ANNEX-V-005, ANNEX-V-010, ANNEX-V-011</strong> — The backend reads relocation parameters and applies account-level permissions.</li>
+            <li><strong>ANNEX-V-008, ANNEX-V-012, ANNEX-V-014, ANNEX-V-016</strong> — The system activates relocation, searches segments, and builds a combined booking.</li>
+            <li><strong>ANNEX-V-009, ANNEX-V-013, ANNEX-V-015</strong> — Booking records and public demonstrations corroborate the transactional workflow.</li>
+            <li><strong>ANNEX-V-002, ANNEX-V-004, ANNEX-V-008</strong> — The result is presented through the search-result renderer.</li>
+        </ol>
+    </div>
+
+    <h2>Evidentiary Annex Grouping & Claims Mapping</h2>
+
+    <!-- EXHIBIT V-001 -->
+    <div class="exhibit-card">
+        <h3>Exhibit V-001: Domain / Identity Continuity</h3>
+        <p><strong>Page Reference:</strong> Page 1 of 20 | <strong>Annex Reference:</strong> ANNEX-V-001</p>
+        
+        <div class="img-container full-width">
+            <img src="images-evidences/EXHIBIT-V-001.png" alt="Exhibit V-001 - Domain / Identity Continuity" class="img-full" onerror="handleImgError(this, 'ANNEX-V-001')">
+        </div>
+
+        <p><strong>Corresponds to Claim:</strong> System Identity & Operator Provenance</p>
+        <p><strong>Source Text Excerpt:</strong> Cross-reference records connecting GoDaddy (`www.malindi-dg.com`), DreamHost (`www.hotels-plus.net`), and Internet Archive captures establishing brand and infrastructure continuity.</p>
+    </div>
+
+    <!-- EXHIBIT V-002 -->
+    <div class="exhibit-card">
+        <h3>Exhibit V-002: Contemporaneous Email / Video Links</h3>
+        <p><strong>Page Reference:</strong> Page 1 of 6 (p. 2 of 20) | <strong>Annex Reference:</strong> ANNEX-V-002</p>
+        
+        <div class="img-container full-width">
+            <img src="images-evidences/EXHIBIT-V-002.png" alt="Exhibit V-002 - Contemporaneous Video Captures" class="img-full" onerror="handleImgError(this, 'ANNEX-V-002')">
+        </div>
+
+        <p><strong>Corresponds to Claim:</strong> Claim 1</p>
+        <p><strong>Source Text Excerpt:</strong> Video demonstration captures: "Normal reservation relocation to room type" (uploaded June 3, 2019) and "hotel relocation multi rooms" (uploaded May 30, 2019)</p>
+
+        <!--Part-2-->
+         <div class="img-container full-width">
+            <img src="images-evidences/EXHIBIT-V-002-A.png" alt="Exhibit V-002 - Contemporaneous Video Captures" class="img-full" onerror="handleImgError(this, 'ANNEX-V-002')">
+        </div>
+
+        <p><strong>Corresponds to Claim:</strong> Claim 1</p>
+        <p><strong>Source Text Excerpt:</strong> Cross Reference EXHIBIT D-03A / Annex-D-010
+</p>
+    </div>
+
+    <!-- EXHIBIT V-003 -->
+    <div class="exhibit-card">
+        <h3>Exhibit V-003: Relocation Explained (August & Sept 2019)</h3>
+        <p><strong>Page Reference:</strong> Page 2 of 6 (p. 3 of 20) | <strong>Annex Reference:</strong> ANNEX-V-003</p>
+        
+        <div class="img-container full-width">
+            <img src="images-evidences/EXHIBIT-V-03-A.png" alt="Exhibit V-003 - Relocation Explained Videos" class="img-full" onerror="handleImgError(this, 'ANNEX-V-003')">
+        </div>
+
+        <p><strong>Corresponds to Claim:</strong> Claim 1</p>
+        <p><strong>Source Text Excerpt:</strong> YouTube video disclosures explaining how Hotels-plus.net combines occupancy gaps among room types to create full stays (Published Aug 19, 2019 and Sept 6, 2019).</p>
+
+        <!--Part-2-->
+        <div class="img-container full-width">
+            <img src="images-evidences/EXHIBIT-V-03.png" alt="Exhibit V-003 - Relocation Explained Videos" class="img-full" onerror="handleImgError(this, 'ANNEX-V-003')">
+        </div>
+
+        <p><strong>Corresponds to Claim:</strong> Claim 1</p>
+        <p><strong>Source Text Excerpt:</strong> YouTube video disclosures explaining how Hotels-plus.net combines occupancy gaps among room types to create full stays (Published Aug 19, 2019 and Sept 6, 2019).</p>
+        <p>https://youtu.be/IbN8lSklxuc?si=yO_xMcdNGA8W-aGe  At [0:30/1:35]</p>
+    </div>
+
+    <!-- EXHIBIT V-004 -->
+    <div class="exhibit-card">
+        <h3>Exhibit V-004: Contemporaneous Email / Attached PDF Screenshots</h3>
+        <p><strong>Page Reference:</strong> Page 3 of 6 (p. 4 of 20) | <strong>Annex Reference:</strong> ANNEX-V-004</p>
+        
+        <div class="img-container full-width">
+            <img src="images-evidences/EXHIBIT-V-03A.png" alt="Exhibit V-004 - Room Relocation Video Captures" class="img-full" onerror="handleImgError(this, 'ANNEX-V-004')">
+        </div>
+
+        <p><strong>Corresponds to Claim:</strong> Claim 1</p>
+        <p><strong>Source Text Excerpt:</strong> Live demonstration capturing top notification interface showing combined room availability ("See Notification on the top then both room types available", uploaded May 30, 2019 and June 3, 2019).</p>
+        
+        <!--Paty-2-->
+        <div class="img-container full-width">
+            <img src="images-evidences/EXHIBIT-V-03B-.png" alt="Exhibit V-004 - Room Relocation Video Captures" class="img-full" onerror="handleImgError(this, 'ANNEX-V-004')">
+        </div>
+
+        <p><strong>Corresponds to Claim:</strong> Claim 1</p>
+        <p><strong>Source Text Excerpt:</strong> Live demonstration capturing top notification interface showing combined room availability ("See Notification on the top then both room types available", uploaded May 30, 2019 and June 3, 2019).</p>
+        <p>Cross Reference EXHIBIT D-01B / Annex-D-0014
+</p>
+        
+    </div>
+
+    <!-- EXHIBIT V-005 -->
+    <div class="exhibit-card">
+        <h3>Exhibit V-005: Contemporaneous Email / Attached Hotel Relocation</h3>
+        <p><strong>Page Reference:</strong> Page 4 of 6 (p. 5 of 20) | <strong>Annex Reference:</strong> ANNEX-V-005</p>
+        
+        <div class="img-container full-width">
+            <img src="images-evidences/EXHIBIT-V-03B.png" alt="Exhibit V-005 - Hotel Relocation Workflow" class="img-full" onerror="handleImgError(this, 'ANNEX-V-005')">
+        </div>
+
+        <p><strong>Corresponds to Claim:</strong> Claim 1</p>
+        <p><strong>Source Text Excerpt:</strong> https://youtu.be/2E4u20FaRq4?si=ezvDg1ySQ27xuxTl at (1:08/01:25).</p>
+        <p><strong>Hotel Relocation”</strong>Cross Reference EXHIBIT D-01B / ANNEX-V-005</p>
+        <p><strong>The Google distance API was not activated during this recording. The video is therefore relied upon for the demonstrated hotel-relocation workflow, not for an API-generated distance calculation.
+The relocation shown includes a change from a Standard room to an Executive Suite. The guest did not apply a filter requiring the replacement accommodation to have the same room level/type.</strong></p>
+    </div>
+
+    <!-- EXHIBIT V-006 -->
+    <div class="exhibit-card">
+        <h3>Exhibit V-006: Contemporaneous Email Attached Pitch Deck June 2019</h3>
+        <p><strong>Page Reference:</strong> Page 5 of 6 (p. 6 of 20) | <strong>Annex Reference:</strong> ANNEX-V-006</p>
+        
+        <div class="img-container full-width">
+            <img src="images-evidences/EXHIBIT-V-04.png" alt="Exhibit V-006 - Room Relocation Pitch Deck Demo" class="img-full" onerror="handleImgError(this, 'ANNEX-V-006')">
+        </div>
+
+        <p><strong>Corresponds to Claim:</strong> Claim 1</p>
+        <p><strong>Source Text Excerpt:</strong> Screen capture from video `https://youtu.be/GaLMILBXNXc` (uploaded May 30, 2019) showing room relocation notification and availability presentation</p>
+        <p><strong>Room Relocation”</strong></p>
+        <p><strong>Cross Reference EXHIBIT D-03C / ANNEX-D-018 </strong></p>
+    </div>
+
+    <!-- EXHIBIT V-007 -->
+    <div class="exhibit-card">
+        <h3>Exhibit V-007: Contemporaneous Email Attached Pitch Deck July 2019</h3>
+        <p><strong>Page Reference:</strong> Page 6 of 6 (p. 7 of 20) | <strong>Annex Reference:</strong> ANNEX-V-007</p>
+        
+        <div class="img-container full-width">
+            <img src="images-evidences/EXHIBIT-V-05.png" alt="Exhibit V-007 - Pitch Deck July 2019 Capture" class="img-full" onerror="handleImgError(this, 'ANNEX-V-007')">
+        </div>
+
+        <p><strong>Corresponds to Claim:</strong> Claim 1</p>
+        <p><strong>Source Text Excerpt:</strong> Vhttps://youtu.be/2E4u20FaRq4?si=uNvyhhlTDRw9tfdk At(0:05/01/25).</p>
+    <p><strong>Domain www.Malindi-deg.com </strong></p>
+    <p><strong>Domain Infrastructure / Cross-reference / EXHIBIT D-05F / Annex-D-026</strong></p>
+    <p><strong>Pitch Deck July 2019 / Cross Reference EXHIBIT D-03C1  / Annex-D-013 </strong></p>
+    </div>
+
+    <!-- EXHIBIT V-008 -->
+    <div class="exhibit-card">
+        <h3>Exhibit V-008: Room Split Stay "Room Relocation"</h3>
+        <p><strong>Page Reference:</strong> Page 1 of 4 (p. 8 of 20) | <strong>Annex Reference:</strong> ANNEX-V-008</p>
+        
+        <div class="img-container full-width">
+            <img src="images-evidences/EXHIBIT-V-06.png" alt="Exhibit V-008 - Room Relocation Search" class="img-full" onerror="handleImgError(this, 'ANNEX-V-008')">
+        </div>
+
+        <p><strong>Corresponds to Claim:</strong> Claim 1</p>
+        <p><strong>Source Text Excerpt:</strong> Multi-segment room split stay search result combining Twin Room and Standard Room at Hiliki House (uploaded Sept 9, 2019).</p>
+    </div>
+
+    <!-- EXHIBIT V-009 -->
+    <div class="exhibit-card">
+        <h3>Exhibit V-009: Room Split Stay "Room Relocation" Confirmation Log</h3>
+        <p><strong>Page Reference:</strong> Page 2 of 4 (p. 9 of 20) | <strong>Annex Reference:</strong> ANNEX-V-009</p>
+        
+        <div class="img-container full-width">
+            <img src="images-evidences/EXHIBIT-V-06A.png" alt="Exhibit V-009 - Booking Confirmation Log" class="img-full" onerror="handleImgError(this, 'ANNEX-V-009')">
+        </div>
+
+        <p><strong>Corresponds to Claim:</strong> Claim </p>
+        <p><strong>Source Text Excerpt:</strong> Booking confirmation ID `M5XEPDJCJC` generated on July 11, 2019, corroborated by relational DB record insert.</p>
+        <div class="img-container full-width">
+            <img src="images-evidences/M5XEPDJCJC-hiliki.png" alt="Exhibit V-009 - Booking Confirmation Log" class="img-full" onerror="handleImgError(this, 'ANNEX-V-009')">
+        </div>
+
+        <p><strong>Corresponds to Claim:</strong> Claim 1</p>
+        <p><strong>Source Text Excerpt:</strong> Booking confirmation ID `M5XEPDJCJC` generated on July 11, 2019, corroborated by relational DB record insert</p>
+    </div>
+
+    <!-- EXHIBIT V-010 -->
+    <div class="exhibit-card">
+        <h3>Exhibit V-010: Travel Agent Login Room Relocation</h3>
+        <p><strong>Page Reference:</strong> Page 3 of 4 (p. 10 of 20) | <strong>Annex Reference:</strong> ANNEX-V-010</p>
+        
+        <div class="img-container full-width">
+            <img src="images-evidences/EXHIBIT V-06B.png" alt="Exhibit V-010 - Travel Agent Portal Interface" class="img-full" onerror="handleImgError(this, 'ANNEX-V-010')">
+        </div>
+
+        <p><strong>Corresponds to Claim:</strong> Claim 1</p>
+        <p><strong>Source Text Excerpt:</strong> Travel agent portal on `www.hotels-plus.net` processing room relocation bookings across multi-segment stays (uploaded Nov 5, 2019).</p>
+        <p><strong>Domain www.hotels-plus.net</strong></p>
+        <p><strong>https://youtu.be/fsRh-98KC-w?si=VQsR8L27TDC1008h</strong></p>
+        <p><strong>Travel Agent Login Room Relocation at (01:18/03:34)</strong></p>
+        <p><strong>Booking confirmation / Cross Reference EXHIBIT D-07H / ANNEX-D-041</strong></p>
+
+    </div>
+
+    <!-- EXHIBIT V-011 -->
+    <div class="exhibit-card">
+        <h3>Exhibit V-011: Travel Agent Booking Management & SQL Insert Cross-Reference</h3>
+        <p><strong>Page Reference:</strong> Page 4 of 4 (p. 11 of 20) | <strong>Annex Reference:</strong> ANNEX-V-011</p>
+        
+        <div class="img-container full-width">
+            <img src="images-evidences/EXHIBIT-V-06C.png" alt="Exhibit V-011 - Travel Agent Booking Management and DB Record" class="img-full" onerror="handleImgError(this, 'ANNEX-V-011')">
+        </div>
+
+        <p><strong>Corresponds to Claim:</strong> Claim /p>
+        <p><strong>Source Text Excerpt:</strong> Travel agent booking management interface cross-referenced with exact `uhb_new_bookings_rooms` SQL insert query for booking `1IQK4QUSTG`.</p>
+        <!--Part2-->
+        <div class="img-container full-width">
+            <img src="images-evidences/1IQK4QUSTG.png" alt="Exhibit V-011 - Travel Agent Booking Management and DB Record" class="img-full" onerror="handleImgError(this, 'ANNEX-V-011')">
+        </div>
+          <p><strong>Source Text Excerpt:</strong> Travel agent booking management interface cross-referenced with exact `uhb_new_bookings_rooms` SQL insert query for booking `1IQK4QUSTG`.</p>
+          <p><strong>https://youtu.be/fsRh-98KC-w?si=cTTsdUHQuKzrkr3L</strong></p>
+          <p><strong>Travel Agent Login Room Relocation at [2:25/3:46]</strong></p>
+          <p><strong>Cross-Refence EXHIBIT D-07H: Anex-D-041</strong></p>
+          <!--Part3-->
+          <div class="img-container full-width">
+            <img src="images-evidences/1IQK4QUSTG-1.png" alt="Exhibit V-011 - Travel Agent Booking Management and DB Record" class="img-full" onerror="handleImgError(this, 'ANNEX-V-011')">
+        </div>
+          <p><strong>Source Text Excerpt:</strong> Travel agent booking management interface cross-referenced with exact `uhb_new_bookings_rooms` SQL insert query for booking `1IQK4QUSTG`.</p>
+          <p><strong>https://youtu.be/fsRh-98KC-w?si=cTTsdUHQuKzrkr3L</strong></p>
+          <p><strong>Travel Agent Login Room Relocation at [2:25/3:46]</strong></p>
+          <p><strong>Cross-Refence EXHIBIT D-07H: Anex-D-041</strong></p>
+    </div>
+
+    <!-- EXHIBIT V-012 -->
+    <div class="exhibit-card">
+        <h3><strong>Exhibit V-012: Room Split Stay "Hotel Relocation" Interface</strong></h3>
+        <p><strong>Page Reference:</strong> Page 1 of 2 (p. 12 of 20) | <strong>Annex Reference:</strong> ANNEX-V-012</p>
+        
+        <div class="img-container full-width">
+            <img src="images-evidences/EXHIBIT-V-03B.png" alt="Exhibit V-012 - Hotel Relocation Reservation Details" class="img-full" onerror="handleImgError(this, 'ANNEX-V-012')">
+        </div>
+
+        <p><strong>Corresponds to Claim:</strong> Claim 1</p>
+        <p><strong>Source Text Excerpt:</strong> Recording inter-hotel relocation combining Wyndham Boston Hill (5 nights) and Park Lany Hotel (7 nights) (uploaded Sept 7, 2019).</p>
+        <p><strong>https://youtu.be/0vpWGo1XRMs?si=gCjOw5v4aIYFRom8 at [1:09/1:25]</strong></p>
+    </div>
+
+    <!-- EXHIBIT V-013 -->
+    <div class="exhibit-card">
+        <h3>Exhibit V-013: Hotel Relocation Confirmation & Database Record</h3>
+        <p><strong>Page Reference:</strong> Page 2 of 2 (p. 13 of 19) | <strong>Annex Reference:</strong> ANNEX-V-013</p>
+        
+        <div class="img-container full-width">
+            <img src="images-evidences/EXHIBIT-V-07A.png" alt="Exhibit V-013 - Hotel Relocation Confirmation Email and Database Record" class="img-full" onerror="handleImgError(this, 'ANNEX-V-013')">
+        </div>
+
+        <p><strong>Corresponds to Claim:</strong> Claim 1.6</p>
+        <p><strong>Source Text Excerpt:</strong> System order confirmation `KT3H4ZAKG9` dated July 11, 2019, logging multi-property itinerary details and pricing in backend DB.</p>
+        div class="img-container full-width">
+            <img src="images-evidences/EXHIBIT-V-06A.png" alt="Exhibit V-013 - Hotel Relocation Confirmation Email and Database Record" class="img-full" onerror="handleImgError(this, 'ANNEX-V-013')">
+                    <p><strong>Source Text Excerpt:</strong> System order confirmation `KT3H4ZAKG9` dated July 11, 2019, logging multi-property itinerary details and pricing in backend DB.</p>
+
+            </div>
+
+    <!-- EXHIBIT V-014 -->
+    <div class="exhibit-card">
+        <h3>Exhibit V-014: Live Booking with Confirmation Nov. 2019 (Page 1)</h3>
+        <p><strong>Page Reference:</strong> Page 1 of 9 (p. 14 of 19) | <strong>Annex Reference:</strong> ANNEX-V-014</p>
+        
+        <div class="img-container full-width">
+            <img src="images-evidences/EXHIBIT-V-08.png" alt="Exhibit V-014 - Live Booking Search and Modification" class="img-full" onerror="handleImgError(this, 'ANNEX-V-014')">
+        </div>
+
+        <p><strong>Corresponds to Claim:</strong> Claim 1</p>
+        <p><strong>Source Text Excerpt:</strong> Automated lodging search interface in Sharm El Sheikh for multi-day request (07 Nov 2019 to 19 Nov 2019) with stay modification capabilities.</p>
+        <p>Backend automatically processes lodging details to satisfy client specified criteria to book the room from “07-19-July 2019”</p>
+        <p><strong>https://youtu.be/fsRh-98KC-w?si=EMsTGQM-oVADQqFQ</strong>At [0:58/3:48]</p>
+    
+    <!--Part2-->
+    <div class="img-container full-width">
+            <img src="images-evidences/EXHIBIT-V-08B.png" alt="Exhibit V-014 - Live Booking Search and Modification" class="img-full" onerror="handleImgError(this, 'ANNEX-V-014')">
+        </div>
+
+        <p><strong>Corresponds to Claim:</strong> Claim 1</p>
+                <p><strong>Source Text Excerpt:</strong> .</p>
+
+    
+    </div>
+
+    
+
+    <!-- EXHIBIT V-016 -->
+    <div class="exhibit-card">
+        <h3>Exhibit V-016: Room Relocation Automatic Rebooking Features</h3>
+        <p><strong>Page Reference:</strong> Page 2 of 9 (p. 16 of 19) | <strong>Annex Reference:</strong> ANNEX-V-016</p>
+        
+        <div class="img-container full-width">
+            <img src="images-evidences/EXHIBIT-V-08C.png" alt="Exhibit V-016 - Automatic Rebooking Verification" class="img-full" onerror="handleImgError(this, 'ANNEX-V-016')">
+        </div>
+
+        <p><strong>Corresponds to Claim:</strong> Claim 1</p>
+        <p><strong>Source Text Excerpt:</strong> Automatic verification and rebooking workflow upon date modification, generating split-stay booking confirmation ID `1IQK4QUSTG`.</p>
+    </div>
+<!-- EXHIBIT V-015 -->
+    <div class="exhibit-card">
+        <h3>Exhibit V-015: Public Demonstration Upload (May 30, 2019)</h3>
+        <p><strong>Page Reference:</strong> Page 1 of 9 (p. 15 of 19) | <strong>Annex Reference:</strong> ANNEX-V-015</p>
+        
+        <div class="img-container full-width">
+            <img src="images-evidences/EXHIBIT-V-04.png" alt="Exhibit V-015 - LinkedIn Public Link Disclosure" class="img-full" onerror="handleImgError(this, 'ANNEX-V-015')">
+        </div>
+
+        <p><strong>Corresponds to Claim:</strong> Third-Party Public Disclosure Baseline</p>
+        <p><strong>Source Text Excerpt:</strong> Public video uploaded May 30, 2019 (`youtu.be/82XxQouNwQc`), distributed without restriction on open LinkedIn group with 320,000+ members.</p>
+        <p><strong>Cross Reference EXHIBIT D-09L / LinkedIn Post PUBLIS Group – 2019 /ANNEX-D-047</strong></p>
+
+        <!--Part-2-->
+        <div class="img-container full-width">
+            <img src="images-evidences/EXHIBIT-V-002.png" alt="Exhibit V-015 - LinkedIn Public Link Disclosure" class="img-full" onerror="handleImgError(this, 'ANNEX-V-015')">
+        </div>
+
+        <p><strong>Corresponds to Claim:</strong> Third-Party Public Disclosure Baseline</p>
+        <p><strong>Source Text Excerpt:</strong> Public video uploaded May 30, 2019 (`youtu.be/82XxQouNwQc`), distributed without restriction on open LinkedIn group with 320,000+ members.</p>
+
+    </div>
+    <!-- EXHIBIT V-017 -->
+    <div class="exhibit-card">
+        <h3>Exhibit V-017: UI Prior Art July 2019</h3>
+        <p><strong>Page Reference:</strong> Page 3 of 9 (p. 17 of 19) | <strong>Annex Reference:</strong> ANNEX-V-017</p>
+        
+        <div class="img-container full-width">
+            <img src="images-evidences/EXHIBIT-V-09A.png" alt="Exhibit V-017 - UI Prior Art Live Server Connection" class="img-full" onerror="handleImgError(this, 'ANNEX-V-017')">
+        </div>
+
+        <p><strong>Corresponds to Claim:</strong> Claim 1</p>
+        <p><strong>Source Text Excerpt:</strong> Live server connection (`malindi-dg.com`) processing hotel reservation search on July 11, 2019.</p>
+        <!--part2-->
+        <div class="img-container full-width">
+            <img src="images-evidences/EXHIBIT-V-09B.png" alt="Exhibit V-017 - UI Prior Art Live Server Connection" class="img-full" onerror="handleImgError(this, 'ANNEX-V-017')">
+        </div>
+
+        <p><strong>Corresponds to Claim:</strong> Claim 1</p>
+        <p><strong>Source Text Excerpt:</strong> Live server connection (`malindi-dg.com`) processing hotel reservation search on July 11, 2019.</p>
+    </div>
+
+    <!-- EXHIBIT V-018 -->
+    <div class="exhibit-card">
+        <h3>Exhibit V-018: Copyright and Ownership Footer Disclosure</h3>
+        <p><strong>Page Reference:</strong> Page 4 of 9 (p. 18 of 19) | <strong>Annex Reference:</strong> ANNEX-V-018</p>
+        
+        <div class="img-container full-width">
+            <img src="images-evidences/EXHIBIT-V-011.png" alt="Exhibit V-018 - Copyright Notice and Registry Code" class="img-full" onerror="handleImgError(this, 'ANNEX-V-018')">
+        </div>
+
+        <p><strong>Corresponds to Claim:</strong> Corporate Identity & Rights Ownership</p>
+        <p><strong>Source Text Excerpt:</strong> System footer displaying "Copyright 2019 All rights reserved. Address: Estonia Office Harju Maakond, Tallinn-Estonia Registry Code 14804245"</p>
+    </div>
+
+    <!-- EXHIBIT V-019 -->
+    <div class="exhibit-card">
+        <h3>Exhibit V-019: Main Website Admin Level Activation</h3>
+        <p><strong>Page Reference:</strong> Page 5 of 9 (p. 19 of 19) | <strong>Annex Reference:</strong> ANNEX-V-019</p>
+        
+        <div class="img-container full-width">
+            <img src="images-evidences/EXHIBIT-V-010.png" alt="Exhibit V-019 - Admin Level Relocation Activation" class="img-full" onerror="handleImgError(this, 'ANNEX-V-019')">
+        </div>
+
+        <p><strong>Corresponds to Claim:</strong> Claim 1</p>
+        <p><strong>Source Text Excerpt:</strong> Admin control panel configuration showing `Allow Relocation To Other Room` = Yes and `Allow Relocation To Other Hotel` = Yes.</p>
+        <!--part2-->
+
+        <div class="img-container full-width">
+            <img src="images-evidences/EXHIBIT-V-010-A.png" alt="Exhibit V-019 - Admin Level Relocation Activation" class="img-full" onerror="handleImgError(this, 'ANNEX-V-019')">
+        </div>
+
+        <p><strong>Corresponds to Claim:</strong> Claim 1</p>
+        <p><strong>Source Text Excerpt:</strong> Admin control panel configuration showing `Allow Relocation To Other Room` = Yes and `Allow Relocation To Other Hotel` = Yes.</p>
+        <!--Part-3-->
+        <div class="img-container full-width">
+            <img src="images-evidences/EXHIBIT-V-010-B.png" alt="Exhibit V-019 - Admin Level Relocation Activation" class="img-full" onerror="handleImgError(this, 'ANNEX-V-019')">
+        </div>
+
+        <p><strong>Corresponds to Claim:</strong> Claim 1</p>
+        <p><strong>Source Text Excerpt:</strong> Admin control panel configuration showing `Allow Relocation To Other Room` = Yes and `Allow Relocation To Other Hotel` = Yes.</p>
+    </div>
+
+    <!--Filtration-->
+    
+<div class="exhibit-card">
+        <h3>Exhibit V-019: Main Website Admin Level Activation</h3>
+        <p><strong>Page Reference:</strong> Page 5 of 9 (p. 19 of 19) | <strong>Annex Reference:</strong> ANNEX-V-019</p>
+        
+        <div class="img-container full-width">
+            <img src="images-evidences/EXHIBIT-V-012.png" alt="Exhibit V-019 - Admin Level Relocation Activation" class="img-full" onerror="handleImgError(this, 'ANNEX-V-019')">
+        </div>
+
+        <p><strong>Corresponds to Claim:</strong> Claim 1</p>
+        <p><strong>Source Text Excerpt:</strong> Admin control panel configuration showing `Allow Relocation To Other Room` = Yes and `Allow Relocation To Other Hotel` = Yes.</p>
+        <!--part2-->
+
+       
+        <!--Part-3-->
+        <div class="img-container full-width">
+            <img src="images-evidences/EXHIBIT-V-012-A.png" alt="Exhibit V-019 - Admin Level Relocation Activation" class="img-full" onerror="handleImgError(this, 'ANNEX-V-019')">
+        </div>
+
+        <p><strong>Corresponds to Claim:</strong> Claim 1</p>
+        <p><strong>Source Text Excerpt:</strong> Admin control panel configuration showing `Allow Relocation To Other Room` = Yes and `Allow Relocation To Other Hotel` = Yes.</p>
+    </div>
+    <h2>Claim Mapping Matrix</h2>
+    <table class="matrix-table">
+        <thead>
+            <tr>
+                <th>Target Claim No.</th>
+                <th>Claim Text (Verbatim)</th>
+                <th>Corresponding Prior Art Exhibit</th>
+                <th>Annex Page Ref</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>Claim 1.1</strong></td>
+                <td>"A system comprising: memory storing listing inventory; and one or more processors configured to execute instructions..."</td>
+                <td>Exhibit V-007 / Exhibit V-010 / Exhibit V-017 / Exhibit V-019</td>
+                <td>ANNEX-V-007 (p. 7)<br>ANNEX-V-010 (p. 10)<br>ANNEX-V-017 (p. 17)<br>ANNEX-V-019 (p. 19)[cite: 64, 67, 74]</td>
+            </tr>
+            <tr>
+                <td><strong>Claim 1.2</strong></td>
+                <td>"...receiving a listing request specifying a length of stay..."</td>
+                <td>Exhibit V-014</td>
+                <td>ANNEX-V-014 (p. 14)[cite: 71]</td>
+            </tr>
+            <tr>
+                <td><strong>Claim 1.3</strong></td>
+                <td>"...determining that available inventory fails to satisfy a minimum availability threshold for the continuous length of stay..."</td>
+                <td>Exhibit V-003 / Exhibit V-016</td>
+                <td>ANNEX-V-003 (p. 3)<br>ANNEX-V-016 (p. 16)[cite: 60, 73]</td>
+            </tr>
+            <tr>
+                <td><strong>Claim 1.4</strong></td>
+                <td>"...generating a combined listing comprising a first portion for a first stay duration at a first listing and a second portion for a second stay duration at a second listing..."</td>
+                <td>Exhibit V-005 / Exhibit V-006 / Exhibit V-012</td>
+                <td>ANNEX-V-005 (p. 5)<br>ANNEX-V-006 (p. 6)<br>ANNEX-V-012 (p. 12)[cite: 62, 63, 69]</td>
+            </tr>
+            <tr>
+                <td><strong>Claim 1.5</strong></td>
+                <td>"...causing presentation of the combined listing in ranked order."</td>
+                <td>Exhibit V-002 / Exhibit V-004</td>
+                <td>ANNEX-V-002 (p. 2)<br>ANNEX-V-004 (p. 4)[cite: 59, 61]</td>
+            </tr>
+            <tr>
+                <td><strong>Claim 1.6</strong></td>
+                <td>"...processing booking requests for multi-leg stay segments."</td>
+                <td>Exhibit V-008 / Exhibit V-009 / Exhibit V-011 / Exhibit V-013</td>
+                <td>ANNEX-V-008 (p. 8)<br>ANNEX-V-009 (p. 9)<br>ANNEX-V-011 (p. 11)<br>ANNEX-V-013 (p. 13)[cite: 65, 66, 68, 70]</td>
+            </tr>
+            <tr>
+                <td><strong>Claim 1.7</strong></td>
+                <td>"...rendering search results in ranked order based on specified parameters."</td>
+                <td>Exhibit V-002 / Exhibit V-008</td>
+                <td>ANNEX-V-002 (p. 2)<br>ANNEX-V-008 (p. 8)[cite: 59, 65]</td>
+            </tr>
+            <tr>
+                <td><strong>Claim 2</strong></td>
+                <td>"The system of claim 1, wherein listings are categorized by thematic attributes or user groups."</td>
+                <td>Exhibit V-010</td>
+                <td>ANNEX-V-010 (p. 10)[cite: 67]</td>
+            </tr>
+            <tr>
+                <td><strong>Claim 3</strong></td>
+                <td>"The system of claim 1, wherein the minimum length of stay threshold is configured as a minimum night duration constraint."</td>
+                <td>Exhibit V-019</td>
+                <td>ANNEX-V-019 (p. 19)</td>
+            </tr>
+            <tr>
+                <td><strong>Claim 4</strong></td>
+                <td>"The system of claim 1, wherein split availability is evaluated using stored user profiles and historical booking activity."</td>
+                <td>Exhibit V-010 / Exhibit V-011</td>
+                <td>ANNEX-V-010 (p. 10)<br>ANNEX-V-011 (p. 11)[cite: 67, 68]</td>
+            </tr>
+            <tr>
+                <td><strong>Claim 12</strong></td>
+                <td>"The system of claim 1, wherein the second listing is selected within a maximum geographic distance limit from the first listing."</td>
+                <td>Exhibit V-005 / Exhibit V-012</td>
+                <td>ANNEX-V-005 (p. 5)<br>ANNEX-V-012 (p. 12)[cite: 62, 69]</td>
+            </tr>
+            <tr>
+                <td><strong>Claim 13</strong></td>
+                <td>"The system of claim 1, wherein behavioral inferences or session parameters are monitored dynamically via endpoint requests."</td>
+                <td>Exhibit V-015 / Exhibit V-017</td>
+                <td>ANNEX-V-015 (p. 15)<br>ANNEX-V-017 (p. 17)[cite: 72, 74]</td>
+            </tr>
+        </tbody>
+    </table>
+
+</div>
+
+</body>
+</html>
